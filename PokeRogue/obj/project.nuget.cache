@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "qnUgkYCbElM=",
+  "success": true,
+  "projectFilePath": "C:\\Users\\Jesper Nyberg\\OneDrive\\Skrivbord\\C#\\csharp-refresher\\10-Project\\PokeRogue\\PokeRogue\\PokeRogue.Blazor.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Jesper Nyberg\\.nuget\\packages\\microsoft.aspnetcore.app.internal.assets\\10.0.10\\microsoft.aspnetcore.app.internal.assets.10.0.10.nupkg.sha512"
+  ],
+  "logs": []
+}

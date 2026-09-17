@@ -1,0 +1,324 @@
+﻿@page "/game"
+@rendermode InteractiveServer
+
+@inject RunApiService RunApiService
+
+<h1>PokeRogue</h1>
+
+@if (!string.IsNullOrWhiteSpace(_errorMessage))
+{
+    <div>
+        <strong>Error:</strong>
+        <p>@_errorMessage</p>
+    </div>
+}
+
+@if (_isLoading)
+{
+    <p>Loading...</p>
+}
+else if (_gameOver)
+{
+    <h2>Game Over</h2>
+
+    <p>Your entire party has fainted.</p>
+
+    <button @onclick="StartNewRun">
+        Start New Run
+    </button>
+}
+else if (_run == null)
+{
+    <button @onclick="StartNewRun">
+        Start New Run
+    </button>
+}
+else if (!_starterChosen)
+{
+    <h2>Choose your starter</h2>
+
+    @foreach (var starter in _starters)
+    {
+        <div>
+            <h3>@starter.Name</h3>
+
+            <p>
+                @starter.Type1
+
+                @if (!string.IsNullOrWhiteSpace(starter.Type2))
+                {
+                    <span> / @starter.Type2</span>
+                }
+            </p>
+
+            <button @onclick="() => ChooseStarter(starter.Id)">
+                Choose @starter.Name
+            </button>
+        </div>
+    }
+}
+else
+{
+    <h2>Run @_run.Id</h2>
+
+    <p>City: @_run.CurrentCity</p>
+    <p>Current node: @_run.CurrentNodeId</p>
+    <p>Status: @_run.RunStatus</p>
+
+    @if (_map == null)
+    {
+        <p>Loading map...</p>
+    }
+    else
+    {
+        var currentNode = GetCurrentRunNode();
+
+        @if (currentNode != null &&
+             currentNode.Type == "RandomEncounter" &&
+             !currentNode.IsCompleted)
+        {
+            <RandomEncounterEvent RunId="_run.Id"
+                                  OnCompleted="HandleEventCompleted"
+                                  OnLost="HandleBattleLost" />
+        }
+        else if (currentNode != null &&
+                 currentNode.Type == "PokemonTrainer" &&
+                 !currentNode.IsCompleted)
+        {
+            <TrainerEncounterEvent RunId="_run.Id"
+                                   OnCompleted="HandleEventCompleted"
+                                   OnLost="HandleBattleLost" />
+        }
+        else if (currentNode != null &&
+                 currentNode.Type == "GymLeader" &&
+                 !currentNode.IsCompleted)
+        {
+            <GymEncounterEvent RunId="_run.Id"
+                               OnCompleted="HandleEventCompleted"
+                               OnLost="HandleBattleLost" />
+        }
+        else
+        {
+            <PartyView Pokemon="_run.Pokemon" />
+
+            @if (currentNode != null &&
+                 currentNode.Type == "Item" &&
+                 !currentNode.IsCompleted)
+            {
+                <ItemEvent RunId="_run.Id"
+                           OnCompleted="HandleEventCompleted" />
+            }
+            else if (currentNode != null &&
+                     currentNode.Type == "CatchPokemon" &&
+                     !currentNode.IsCompleted)
+            {
+                <CatchPokemonEvent RunId="_run.Id"
+                                   OnCompleted="HandleEventCompleted" />
+            }
+            else if (currentNode != null &&
+                     currentNode.Type == "TM" &&
+                     !currentNode.IsCompleted)
+            {
+                <TmEvent RunId="_run.Id"
+                         Pokemon="_run.Pokemon"
+                         OnCompleted="HandleEventCompleted" />
+            }
+            else
+            {
+                <GameMap Map="_map"
+                         CurrentNodeId="_run.CurrentNodeId"
+                         OnMove="MoveToNode" />
+            }
+        }
+    }
+}
+
+@code {
+    private RunDto? _run;
+    private RunMapDto? _map;
+
+    private List<PokemonDto> _starters = new();
+
+    private bool _starterChosen;
+    private bool _isLoading;
+    private bool _gameOver;
+
+    private string? _errorMessage;
+
+    private async Task StartNewRun()
+    {
+        _run = null;
+        _map = null;
+
+        _starters = new();
+
+        _starterChosen = false;
+        _gameOver = false;
+
+        _errorMessage = null;
+
+        await StartRun();
+    }
+
+    private async Task StartRun()
+    {
+        _isLoading = true;
+        _errorMessage = null;
+
+        try
+        {
+            _run =
+                await RunApiService.StartRunAsync();
+
+            if (_run != null)
+            {
+                _starters =
+                    await RunApiService.GetStartersAsync(
+                        _run.Id
+                    );
+            }
+        }
+        catch (Exception exception)
+        {
+            _errorMessage =
+                exception.ToString();
+        }
+        finally
+        {
+            _isLoading = false;
+        }
+    }
+
+    private async Task ChooseStarter(
+        int pokemonSpeciesId
+    )
+    {
+        if (_run == null)
+        {
+            return;
+        }
+
+        _isLoading = true;
+        _errorMessage = null;
+
+        try
+        {
+            await RunApiService.ChooseStarterAsync(
+                _run.Id,
+                pokemonSpeciesId
+            );
+
+            await ReloadRunAndMap();
+
+            _starterChosen = true;
+        }
+        catch (Exception exception)
+        {
+            _errorMessage =
+                exception.ToString();
+        }
+        finally
+        {
+            _isLoading = false;
+        }
+    }
+
+    private async Task MoveToNode(
+        int targetNodeId
+    )
+    {
+        if (_run == null)
+        {
+            return;
+        }
+
+        _isLoading = true;
+        _errorMessage = null;
+
+        try
+        {
+            await RunApiService.MoveToNodeAsync(
+                _run.Id,
+                targetNodeId
+            );
+
+            await ReloadRunAndMap();
+        }
+        catch (Exception exception)
+        {
+            _errorMessage =
+                exception.ToString();
+        }
+        finally
+        {
+            _isLoading = false;
+        }
+    }
+
+    private RunNodeDto? GetCurrentRunNode()
+    {
+        if (_run == null || _map == null)
+        {
+            return null;
+        }
+
+        return _map.RunNodes.FirstOrDefault(
+            node =>
+                node.MapNodeId ==
+                _run.CurrentNodeId
+        );
+    }
+
+    private async Task HandleEventCompleted()
+    {
+        if (_run == null)
+        {
+            return;
+        }
+
+        _isLoading = true;
+        _errorMessage = null;
+
+        try
+        {
+            await ReloadRunAndMap();
+        }
+        catch (Exception exception)
+        {
+            _errorMessage =
+                exception.ToString();
+        }
+        finally
+        {
+            _isLoading = false;
+        }
+    }
+
+    private Task HandleBattleLost()
+    {
+        _gameOver = true;
+
+        return Task.CompletedTask;
+    }
+
+    private async Task ReloadRunAndMap()
+    {
+        if (_run == null)
+        {
+            return;
+        }
+
+        int runId =
+            _run.Id;
+
+        _run =
+            await RunApiService.GetRunAsync(
+                runId
+            );
+
+        _map =
+            await RunApiService.GetRunMapAsync(
+                runId
+            );
+    }
+}

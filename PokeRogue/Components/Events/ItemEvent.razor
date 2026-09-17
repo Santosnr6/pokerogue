@@ -1,0 +1,103 @@
+﻿@inject EventApiService EventApiService
+
+<div class="item-event">
+    <h2>Choose an item</h2>
+
+    @if (_isLoading)
+    {
+        <p>Loading items...</p>
+    }
+    else if (!string.IsNullOrWhiteSpace(_errorMessage))
+    {
+        <p>Error: @_errorMessage</p>
+    }
+    else if (_items.Count == 0)
+    {
+        <p>No items available.</p>
+    }
+    else
+    {
+        @foreach (var item in _items)
+        {
+            <div class="item-option">
+                <h3>@item.Name</h3>
+
+                @if (!string.IsNullOrWhiteSpace(item.Description))
+                {
+                    <p>@item.Description</p>
+                }
+
+                <button @onclick="() => ChooseItem(item.Id)">
+                    Choose @item.Name
+                </button>
+            </div>
+        }
+    }
+</div>
+
+@code {
+    [Parameter]
+    public int RunId { get; set; }
+
+    [Parameter]
+    public EventCallback OnCompleted { get; set; }
+
+    private List<ItemDto> _items = new();
+
+    private bool _isLoading = true;
+
+    private string? _errorMessage;
+
+    protected override async Task OnParametersSetAsync()
+    {
+        await LoadItems();
+    }
+
+    private async Task LoadItems()
+    {
+        _isLoading = true;
+        _errorMessage = null;
+
+        try
+        {
+            _items =
+                await EventApiService.GetItemOptionsAsync(
+                    RunId
+                );
+        }
+        catch (Exception exception)
+        {
+            _errorMessage =
+                exception.Message;
+        }
+        finally
+        {
+            _isLoading = false;
+        }
+    }
+
+    private async Task ChooseItem(int itemId)
+    {
+        _isLoading = true;
+        _errorMessage = null;
+
+        try
+        {
+            await EventApiService.ChooseItemAsync(
+                RunId,
+                itemId
+            );
+
+            await OnCompleted.InvokeAsync();
+        }
+        catch (Exception exception)
+        {
+            _errorMessage =
+                exception.Message;
+        }
+        finally
+        {
+            _isLoading = false;
+        }
+    }
+}

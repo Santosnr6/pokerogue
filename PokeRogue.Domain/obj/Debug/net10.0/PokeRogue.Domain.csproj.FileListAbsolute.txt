@@ -1,0 +1,12 @@
+C:\Users\Jesper Nyberg\OneDrive\Skrivbord\C#\csharp-refresher\10-Project\PokeRogue\PokeRogue.Domain\bin\Debug\net10.0\PokeRogue.Domain.deps.json
+C:\Users\Jesper Nyberg\OneDrive\Skrivbord\C#\csharp-refresher\10-Project\PokeRogue\PokeRogue.Domain\bin\Debug\net10.0\PokeRogue.Domain.dll
+C:\Users\Jesper Nyberg\OneDrive\Skrivbord\C#\csharp-refresher\10-Project\PokeRogue\PokeRogue.Domain\bin\Debug\net10.0\PokeRogue.Domain.pdb
+C:\Users\Jesper Nyberg\OneDrive\Skrivbord\C#\csharp-refresher\10-Project\PokeRogue\PokeRogue.Domain\obj\Debug\net10.0\PokeRogue.Domain.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Jesper Nyberg\OneDrive\Skrivbord\C#\csharp-refresher\10-Project\PokeRogue\PokeRogue.Domain\obj\Debug\net10.0\PokeRogue.Domain.AssemblyInfoInputs.cache
+C:\Users\Jesper Nyberg\OneDrive\Skrivbord\C#\csharp-refresher\10-Project\PokeRogue\PokeRogue.Domain\obj\Debug\net10.0\PokeRogue.Domain.AssemblyInfo.cs
+C:\Users\Jesper Nyberg\OneDrive\Skrivbord\C#\csharp-refresher\10-Project\PokeRogue\PokeRogue.Domain\obj\Debug\net10.0\PokeRogue.Domain.csproj.CoreCompileInputs.cache
+C:\Users\Jesper Nyberg\OneDrive\Skrivbord\C#\csharp-refresher\10-Project\PokeRogue\PokeRogue.Domain\obj\Debug\net10.0\PokeRogue.Domain.sourcelink.json
+C:\Users\Jesper Nyberg\OneDrive\Skrivbord\C#\csharp-refresher\10-Project\PokeRogue\PokeRogue.Domain\obj\Debug\net10.0\PokeRogue.Domain.dll
+C:\Users\Jesper Nyberg\OneDrive\Skrivbord\C#\csharp-refresher\10-Project\PokeRogue\PokeRogue.Domain\obj\Debug\net10.0\refint\PokeRogue.Domain.dll
+C:\Users\Jesper Nyberg\OneDrive\Skrivbord\C#\csharp-refresher\10-Project\PokeRogue\PokeRogue.Domain\obj\Debug\net10.0\PokeRogue.Domain.pdb
+C:\Users\Jesper Nyberg\OneDrive\Skrivbord\C#\csharp-refresher\10-Project\PokeRogue\PokeRogue.Domain\obj\Debug\net10.0\ref\PokeRogue.Domain.dll

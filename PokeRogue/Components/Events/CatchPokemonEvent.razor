@@ -1,0 +1,111 @@
+﻿@inject EventApiService EventApiService
+
+<div class="catch-pokemon-event">
+    <h2>Choose a Pokémon</h2>
+
+    @if (_isLoading)
+    {
+        <p>Loading Pokémon...</p>
+    }
+    else if (!string.IsNullOrWhiteSpace(_errorMessage))
+    {
+        <p>Error: @_errorMessage</p>
+    }
+    else if (_pokemon.Count == 0)
+    {
+        <p>No Pokémon available.</p>
+    }
+    else
+    {
+        @foreach (var pokemon in _pokemon)
+        {
+            <div class="pokemon-option">
+
+                <h3>@pokemon.Name</h3>
+
+                <p>
+                    @pokemon.Type1
+
+                    @if (!string.IsNullOrWhiteSpace(pokemon.Type2))
+                    {
+                        <span> / @pokemon.Type2</span>
+                    }
+                </p>
+
+                <button @onclick="() => ChoosePokemon(pokemon.Id)">
+                    Choose @pokemon.Name
+                </button>
+
+            </div>
+        }
+    }
+</div>
+
+@code {
+    [Parameter]
+    public int RunId { get; set; }
+
+    [Parameter]
+    public EventCallback OnCompleted { get; set; }
+
+    private List<PokemonDto> _pokemon = new();
+
+    private bool _isLoading = true;
+
+    private string? _errorMessage;
+
+    protected override async Task OnParametersSetAsync()
+    {
+        await LoadPokemon();
+    }
+
+    private async Task LoadPokemon()
+    {
+        _isLoading = true;
+        _errorMessage = null;
+
+        try
+        {
+            _pokemon =
+                await EventApiService.GetCatchOptionsAsync(
+                    RunId
+                );
+        }
+        catch (Exception exception)
+        {
+            _errorMessage =
+                exception.ToString();
+        }
+        finally
+        {
+            _isLoading = false;
+        }
+    }
+
+    private async Task ChoosePokemon(
+        int pokemonSpeciesId
+    )
+    {
+        _isLoading = true;
+        _errorMessage = null;
+
+        try
+        {
+            await EventApiService.CatchPokemonAsync(
+                RunId,
+                pokemonSpeciesId
+            );
+
+            await OnCompleted.InvokeAsync();
+        }
+        catch (Exception exception)
+        {
+            _errorMessage =
+                exception.ToString();
+        }
+        finally
+        {
+            _isLoading = false;
+        }
+    }
+}

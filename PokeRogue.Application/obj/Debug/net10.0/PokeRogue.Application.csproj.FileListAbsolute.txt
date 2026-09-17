@@ -1,0 +1,16 @@
+C:\Users\Jesper Nyberg\OneDrive\Skrivbord\C#\csharp-refresher\10-Project\PokeRogue\PokeRogue.Application\bin\Debug\net10.0\PokeRogue.Application.deps.json
+C:\Users\Jesper Nyberg\OneDrive\Skrivbord\C#\csharp-refresher\10-Project\PokeRogue\PokeRogue.Application\bin\Debug\net10.0\PokeRogue.Application.dll
+C:\Users\Jesper Nyberg\OneDrive\Skrivbord\C#\csharp-refresher\10-Project\PokeRogue\PokeRogue.Application\bin\Debug\net10.0\PokeRogue.Application.pdb
+C:\Users\Jesper Nyberg\OneDrive\Skrivbord\C#\csharp-refresher\10-Project\PokeRogue\PokeRogue.Application\bin\Debug\net10.0\PokeRogue.Domain.dll
+C:\Users\Jesper Nyberg\OneDrive\Skrivbord\C#\csharp-refresher\10-Project\PokeRogue\PokeRogue.Application\bin\Debug\net10.0\PokeRogue.Domain.pdb
+C:\Users\Jesper Nyberg\OneDrive\Skrivbord\C#\csharp-refresher\10-Project\PokeRogue\PokeRogue.Application\obj\Debug\net10.0\PokeRogue.Application.csproj.AssemblyReference.cache
+C:\Users\Jesper Nyberg\OneDrive\Skrivbord\C#\csharp-refresher\10-Project\PokeRogue\PokeRogue.Application\obj\Debug\net10.0\PokeRogue.Application.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Jesper Nyberg\OneDrive\Skrivbord\C#\csharp-refresher\10-Project\PokeRogue\PokeRogue.Application\obj\Debug\net10.0\PokeRogue.Application.AssemblyInfoInputs.cache
+C:\Users\Jesper Nyberg\OneDrive\Skrivbord\C#\csharp-refresher\10-Project\PokeRogue\PokeRogue.Application\obj\Debug\net10.0\PokeRogue.Application.AssemblyInfo.cs
+C:\Users\Jesper Nyberg\OneDrive\Skrivbord\C#\csharp-refresher\10-Project\PokeRogue\PokeRogue.Application\obj\Debug\net10.0\PokeRogue.Application.csproj.CoreCompileInputs.cache
+C:\Users\Jesper Nyberg\OneDrive\Skrivbord\C#\csharp-refresher\10-Project\PokeRogue\PokeRogue.Application\obj\Debug\net10.0\PokeRogue.Application.sourcelink.json
+C:\Users\Jesper Nyberg\OneDrive\Skrivbord\C#\csharp-refresher\10-Project\PokeRogue\PokeRogue.Application\obj\Debug\net10.0\PokeRogu.9D5106F5.Up2Date
+C:\Users\Jesper Nyberg\OneDrive\Skrivbord\C#\csharp-refresher\10-Project\PokeRogue\PokeRogue.Application\obj\Debug\net10.0\PokeRogue.Application.dll
+C:\Users\Jesper Nyberg\OneDrive\Skrivbord\C#\csharp-refresher\10-Project\PokeRogue\PokeRogue.Application\obj\Debug\net10.0\refint\PokeRogue.Application.dll
+C:\Users\Jesper Nyberg\OneDrive\Skrivbord\C#\csharp-refresher\10-Project\PokeRogue\PokeRogue.Application\obj\Debug\net10.0\PokeRogue.Application.pdb
+C:\Users\Jesper Nyberg\OneDrive\Skrivbord\C#\csharp-refresher\10-Project\PokeRogue\PokeRogue.Application\obj\Debug\net10.0\ref\PokeRogue.Application.dll

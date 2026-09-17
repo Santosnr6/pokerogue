@@ -1,0 +1,93 @@
+﻿@inject EventApiService EventApiService
+
+<div class="tm-event">
+    <h2>You found a TM!</h2>
+
+    <p>
+        Choose a Pokémon to upgrade its attack.
+    </p>
+
+    @if (!string.IsNullOrWhiteSpace(_errorMessage))
+    {
+        <p>Error: @_errorMessage</p>
+    }
+
+    @if (_isLoading)
+    {
+        <p>Using TM...</p>
+    }
+    else
+    {
+        @foreach (var pokemon in Pokemon)
+        {
+            bool fullyUpgraded =
+                pokemon.AttackStage >= 3;
+
+            <div class="pokemon-option">
+                <h3>@pokemon.PokemonSpecies.Name</h3>
+
+                <p>Level: @pokemon.Level</p>
+
+                <p>
+                    Attack Stage:
+                    @pokemon.AttackStage / 3
+                </p>
+
+                @if (fullyUpgraded)
+                {
+                    <button disabled>
+                        Fully upgraded
+                    </button>
+                }
+                else
+                {
+                    <button @onclick="() => UseTm(pokemon.Id)">
+                        Use TM
+                    </button>
+                }
+            </div>
+        }
+    }
+</div>
+
+@code {
+    [Parameter]
+    public int RunId { get; set; }
+
+    [Parameter]
+    public List<PokemonDto> Pokemon { get; set; } = new();
+
+    [Parameter]
+    public EventCallback OnCompleted { get; set; }
+
+    private bool _isLoading;
+
+    private string? _errorMessage;
+
+    private async Task UseTm(
+        int runPokemonId
+    )
+    {
+        _isLoading = true;
+        _errorMessage = null;
+
+        try
+        {
+            await EventApiService.UseTmAsync(
+                RunId,
+                runPokemonId
+            );
+
+            await OnCompleted.InvokeAsync();
+        }
+        catch (Exception exception)
+        {
+            _errorMessage =
+                exception.ToString();
+        }
+        finally
+        {
+            _isLoading = false;
+        }
+    }
+}

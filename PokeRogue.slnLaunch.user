@@ -1,0 +1,15 @@
+[
+  {
+    "Name": "New Profile",
+    "Projects": [
+      {
+        "Path": "PokeRogue.Api\\PokeRogue.Api.csproj",
+        "Action": "Start"
+      },
+      {
+        "Path": "PokeRogue\\PokeRogue.Blazor.csproj",
+        "Action": "Start"
+      }
+    ]
+  }
+]

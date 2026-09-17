@@ -1,0 +1,105 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\Jesper Nyberg\\OneDrive\\Skrivbord\\C#\\csharp-refresher\\10-Project\\PokeRogue\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{47D8EBDF-5FB8-6799-26FC-060781F749D0}|PokeRogue.Infrastructure\\PokeRogue.Infrastructure.csproj|c:\\users\\jesper nyberg\\onedrive\\skrivbord\\c#\\csharp-refresher\\10-project\\pokerogue\\pokerogue.infrastructure\\data\\dbseeder.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{47D8EBDF-5FB8-6799-26FC-060781F749D0}|PokeRogue.Infrastructure\\PokeRogue.Infrastructure.csproj|solutionrelative:pokerogue.infrastructure\\data\\dbseeder.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D578C43B-1C86-C3E2-E99E-46CB543FDBF0}|PokeRogue.Domain\\PokeRogue.Domain.csproj|c:\\users\\jesper nyberg\\onedrive\\skrivbord\\c#\\csharp-refresher\\10-project\\pokerogue\\pokerogue.domain\\enums\\pokemontype.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D578C43B-1C86-C3E2-E99E-46CB543FDBF0}|PokeRogue.Domain\\PokeRogue.Domain.csproj|solutionrelative:pokerogue.domain\\enums\\pokemontype.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{47D8EBDF-5FB8-6799-26FC-060781F749D0}|PokeRogue.Infrastructure\\PokeRogue.Infrastructure.csproj|c:\\users\\jesper nyberg\\onedrive\\skrivbord\\c#\\csharp-refresher\\10-project\\pokerogue\\pokerogue.infrastructure\\data\\pokeroguedbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{47D8EBDF-5FB8-6799-26FC-060781F749D0}|PokeRogue.Infrastructure\\PokeRogue.Infrastructure.csproj|solutionrelative:pokerogue.infrastructure\\data\\pokeroguedbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Jesper Nyberg\\OneDrive\\Skrivbord\\C#\\csharp-refresher\\10-Project\\PokeRogue\\PokeRogue.Infrastructure\\Migrations\\20260818134421_AddPokemonEvolutionDetails.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:PokeRogue.Infrastructure\\Migrations\\20260818134421_AddPokemonEvolutionDetails.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D578C43B-1C86-C3E2-E99E-46CB543FDBF0}|PokeRogue.Domain\\PokeRogue.Domain.csproj|c:\\users\\jesper nyberg\\onedrive\\skrivbord\\c#\\csharp-refresher\\10-project\\pokerogue\\pokerogue.domain\\entities\\pokemonspecies.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D578C43B-1C86-C3E2-E99E-46CB543FDBF0}|PokeRogue.Domain\\PokeRogue.Domain.csproj|solutionrelative:pokerogue.domain\\entities\\pokemonspecies.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 4,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "20260818134421_AddPokemonEvolutionDetails.cs",
+              "DocumentMoniker": "C:\\Users\\Jesper Nyberg\\OneDrive\\Skrivbord\\C#\\csharp-refresher\\10-Project\\PokeRogue\\PokeRogue.Infrastructure\\Migrations\\20260818134421_AddPokemonEvolutionDetails.cs",
+              "RelativeDocumentMoniker": "PokeRogue.Infrastructure\\Migrations\\20260818134421_AddPokemonEvolutionDetails.cs",
+              "ToolTip": "C:\\Users\\Jesper Nyberg\\OneDrive\\Skrivbord\\C#\\csharp-refresher\\10-Project\\PokeRogue\\PokeRogue.Infrastructure\\Migrations\\20260818134421_AddPokemonEvolutionDetails.cs",
+              "RelativeToolTip": "PokeRogue.Infrastructure\\Migrations\\20260818134421_AddPokemonEvolutionDetails.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABsAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-08-18T13:44:21.298Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "PokeRogueDbContext.cs",
+              "DocumentMoniker": "C:\\Users\\Jesper Nyberg\\OneDrive\\Skrivbord\\C#\\csharp-refresher\\10-Project\\PokeRogue\\PokeRogue.Infrastructure\\Data\\PokeRogueDbContext.cs",
+              "RelativeDocumentMoniker": "PokeRogue.Infrastructure\\Data\\PokeRogueDbContext.cs",
+              "ToolTip": "C:\\Users\\Jesper Nyberg\\OneDrive\\Skrivbord\\C#\\csharp-refresher\\10-Project\\PokeRogue\\PokeRogue.Infrastructure\\Data\\PokeRogueDbContext.cs",
+              "RelativeToolTip": "PokeRogue.Infrastructure\\Data\\PokeRogueDbContext.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-08-18T13:43:57.235Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "PokemonType.cs",
+              "DocumentMoniker": "C:\\Users\\Jesper Nyberg\\OneDrive\\Skrivbord\\C#\\csharp-refresher\\10-Project\\PokeRogue\\PokeRogue.Domain\\Enums\\PokemonType.cs",
+              "RelativeDocumentMoniker": "PokeRogue.Domain\\Enums\\PokemonType.cs",
+              "ToolTip": "C:\\Users\\Jesper Nyberg\\OneDrive\\Skrivbord\\C#\\csharp-refresher\\10-Project\\PokeRogue\\PokeRogue.Domain\\Enums\\PokemonType.cs",
+              "RelativeToolTip": "PokeRogue.Domain\\Enums\\PokemonType.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABoAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-08-18T13:31:05.721Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "PokemonSpecies.cs",
+              "DocumentMoniker": "C:\\Users\\Jesper Nyberg\\OneDrive\\Skrivbord\\C#\\csharp-refresher\\10-Project\\PokeRogue\\PokeRogue.Domain\\Entities\\PokemonSpecies.cs",
+              "RelativeDocumentMoniker": "PokeRogue.Domain\\Entities\\PokemonSpecies.cs",
+              "ToolTip": "C:\\Users\\Jesper Nyberg\\OneDrive\\Skrivbord\\C#\\csharp-refresher\\10-Project\\PokeRogue\\PokeRogue.Domain\\Entities\\PokemonSpecies.cs",
+              "RelativeToolTip": "PokeRogue.Domain\\Entities\\PokemonSpecies.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-08-18T13:27:01.766Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "DbSeeder.cs",
+              "DocumentMoniker": "C:\\Users\\Jesper Nyberg\\OneDrive\\Skrivbord\\C#\\csharp-refresher\\10-Project\\PokeRogue\\PokeRogue.Infrastructure\\Data\\DbSeeder.cs",
+              "RelativeDocumentMoniker": "PokeRogue.Infrastructure\\Data\\DbSeeder.cs",
+              "ToolTip": "C:\\Users\\Jesper Nyberg\\OneDrive\\Skrivbord\\C#\\csharp-refresher\\10-Project\\PokeRogue\\PokeRogue.Infrastructure\\Data\\DbSeeder.cs",
+              "RelativeToolTip": "PokeRogue.Infrastructure\\Data\\DbSeeder.cs",
+              "ViewState": "AgIAAAABAAAAAAAAAAAuwBYBAAAvAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-08-18T13:26:29.74Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,96 @@
+is_global = true
+build_property.TargetFramework = net10.0
+build_property.TargetFrameworkIdentifier = .NETCoreApp
+build_property.TargetFrameworkVersion = v10.0
+build_property.TargetPlatformMinVersion = 
+build_property.UsingMicrosoftNETSdkWeb = true
+build_property.ProjectTypeGuids = 
+build_property.InvariantGlobalization = 
+build_property.PlatformNeutralAssembly = 
+build_property.EnforceExtendedAnalyzerRules = 
+build_property.EntryPointFilePath = 
+build_property._SupportedPlatformList = Linux,macOS,Windows
+build_property.RootNamespace = PokeRogue.Blazor
+build_property.RootNamespace = PokeRogue.Blazor
+build_property.ProjectDir = C:\Users\Jesper Nyberg\OneDrive\Skrivbord\C#\csharp-refresher\10-Project\PokeRogue\PokeRogue\
+build_property.EnableComHosting = 
+build_property.EnableGeneratedComInterfaceComImportInterop = 
+build_property.RazorLangVersion = 10.0
+build_property.SupportLocalizedComponentNames = 
+build_property.GenerateRazorMetadataSourceChecksumAttributes = 
+build_property.MSBuildProjectDirectory = C:\Users\Jesper Nyberg\OneDrive\Skrivbord\C#\csharp-refresher\10-Project\PokeRogue\PokeRogue
+build_property._RazorSourceGeneratorDebug = 
+build_property.EffectiveAnalysisLevelStyle = 10.0
+build_property.EnableCodeStyleSeverity = 
+
+[C:/Users/Jesper Nyberg/OneDrive/Skrivbord/C\#/csharp-refresher/10-Project/PokeRogue/PokeRogue/Components/App.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xBcHAucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Jesper Nyberg/OneDrive/Skrivbord/C\#/csharp-refresher/10-Project/PokeRogue/PokeRogue/Components/Events/CatchPokemonEvent.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xFdmVudHNcQ2F0Y2hQb2tlbW9uRXZlbnQucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Jesper Nyberg/OneDrive/Skrivbord/C\#/csharp-refresher/10-Project/PokeRogue/PokeRogue/Components/Events/GymEncounterEvent.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xFdmVudHNcR3ltRW5jb3VudGVyRXZlbnQucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Jesper Nyberg/OneDrive/Skrivbord/C\#/csharp-refresher/10-Project/PokeRogue/PokeRogue/Components/Events/ItemEvent.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xFdmVudHNcSXRlbUV2ZW50LnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Jesper Nyberg/OneDrive/Skrivbord/C\#/csharp-refresher/10-Project/PokeRogue/PokeRogue/Components/Events/RandomEncounterEvent.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xFdmVudHNcUmFuZG9tRW5jb3VudGVyRXZlbnQucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Jesper Nyberg/OneDrive/Skrivbord/C\#/csharp-refresher/10-Project/PokeRogue/PokeRogue/Components/Events/TmEvent.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xFdmVudHNcVG1FdmVudC5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Jesper Nyberg/OneDrive/Skrivbord/C\#/csharp-refresher/10-Project/PokeRogue/PokeRogue/Components/Events/TrainerEncounterEvent.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xFdmVudHNcVHJhaW5lckVuY291bnRlckV2ZW50LnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Jesper Nyberg/OneDrive/Skrivbord/C\#/csharp-refresher/10-Project/PokeRogue/PokeRogue/Components/Map/GameMap.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xNYXBcR2FtZU1hcC5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Jesper Nyberg/OneDrive/Skrivbord/C\#/csharp-refresher/10-Project/PokeRogue/PokeRogue/Components/Party/PartyView.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYXJ0eVxQYXJ0eVZpZXcucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Jesper Nyberg/OneDrive/Skrivbord/C\#/csharp-refresher/10-Project/PokeRogue/PokeRogue/Components/Routes.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xSb3V0ZXMucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Jesper Nyberg/OneDrive/Skrivbord/C\#/csharp-refresher/10-Project/PokeRogue/PokeRogue/Pages/Battle.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQmF0dGxlLnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Jesper Nyberg/OneDrive/Skrivbord/C\#/csharp-refresher/10-Project/PokeRogue/PokeRogue/Pages/Error.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRXJyb3IucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Jesper Nyberg/OneDrive/Skrivbord/C\#/csharp-refresher/10-Project/PokeRogue/PokeRogue/Pages/Game.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcR2FtZS5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Jesper Nyberg/OneDrive/Skrivbord/C\#/csharp-refresher/10-Project/PokeRogue/PokeRogue/Pages/Home.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcSG9tZS5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Jesper Nyberg/OneDrive/Skrivbord/C\#/csharp-refresher/10-Project/PokeRogue/PokeRogue/Pages/NotFound.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcTm90Rm91bmQucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Jesper Nyberg/OneDrive/Skrivbord/C\#/csharp-refresher/10-Project/PokeRogue/PokeRogue/_Imports.razor]
+build_metadata.AdditionalFiles.TargetPath = X0ltcG9ydHMucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Jesper Nyberg/OneDrive/Skrivbord/C\#/csharp-refresher/10-Project/PokeRogue/PokeRogue/Components/Layout/MainLayout.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xMYXlvdXRcTWFpbkxheW91dC5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = b-7s9emrasiq
+
+[C:/Users/Jesper Nyberg/OneDrive/Skrivbord/C\#/csharp-refresher/10-Project/PokeRogue/PokeRogue/Components/Layout/ReconnectModal.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xMYXlvdXRcUmVjb25uZWN0TW9kYWwucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = b-896woxacpo

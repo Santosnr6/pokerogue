@@ -1,0 +1,8 @@
+wwwroot\styles\app.css
+Components\Layout\ReconnectModal.razor.js
+C:\Users\Jesper Nyberg\.nuget\packages\microsoft.aspnetcore.app.internal.assets\10.0.10\build\..\_framework\blazor.web.js
+C:\Users\Jesper Nyberg\.nuget\packages\microsoft.aspnetcore.app.internal.assets\10.0.10\build\..\_framework\blazor.server.js
+C:\Users\Jesper Nyberg\OneDrive\Skrivbord\C#\csharp-refresher\10-Project\PokeRogue\PokeRogue\wwwroot\styles\app.css
+C:\Users\Jesper Nyberg\OneDrive\Skrivbord\C#\csharp-refresher\10-Project\PokeRogue\PokeRogue\Components\Layout\ReconnectModal.razor.js
+C:\Users\Jesper Nyberg\.nuget\packages\microsoft.aspnetcore.app.internal.assets\10.0.10\_framework\blazor.web.js
+C:\Users\Jesper Nyberg\.nuget\packages\microsoft.aspnetcore.app.internal.assets\10.0.10\_framework\blazor.server.js

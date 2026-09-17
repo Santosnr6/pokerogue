@@ -1,0 +1,387 @@
+[
+  {
+    "ContainingType": "PokeRogue.Api.Controllers.BattleController",
+    "Method": "GetBattleState",
+    "RelativePath": "api/battles/{battleId}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "battleId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "PokeRogue.Api.Controllers.BattleController",
+    "Method": "NextAttack",
+    "RelativePath": "api/battles/{battleId}/next",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "battleId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "PokeRogue.Api.Controllers.BattleController",
+    "Method": "SwitchPokemon",
+    "RelativePath": "api/battles/{battleId}/switch/{runPokemonId}",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "battleId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "runPokemonId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "PokeRogue.Api.Controllers.MapController",
+    "Method": "GetTestMap",
+    "RelativePath": "api/map/test",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "PokeRogue.Api.Controllers.PokemonController",
+    "Method": "GetAll",
+    "RelativePath": "api/pokemon",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "PokeRogue.Api.Controllers.PokemonController",
+    "Method": "GetById",
+    "RelativePath": "api/pokemon/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "PokeRogue.Api.Controllers.RunController",
+    "Method": "StartNewRun",
+    "RelativePath": "api/runs",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "PokeRogue.Api.Controllers.RunController",
+    "Method": "GetRun",
+    "RelativePath": "api/runs/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "PokeRogue.Api.Controllers.RunController",
+    "Method": "GetRunMap",
+    "RelativePath": "api/runs/{id}/map",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "PokeRogue.Api.Controllers.RunController",
+    "Method": "MoveToNode",
+    "RelativePath": "api/runs/{id}/move/{targetNodeId}",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "targetNodeId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "PokeRogue.Api.Controllers.RunController",
+    "Method": "ChooseStarter",
+    "RelativePath": "api/runs/{id}/starter/{pokemonSpeciesId}",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "pokemonSpeciesId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "PokeRogue.Api.Controllers.RunController",
+    "Method": "GetStarters",
+    "RelativePath": "api/runs/{id}/starters",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "PokeRogue.Api.Controllers.CatchController",
+    "Method": "ChoosePokemon",
+    "RelativePath": "api/runs/{runId}/catch/{pokemonSpeciesId}",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "runId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "pokemonSpeciesId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "PokeRogue.Api.Controllers.CatchController",
+    "Method": "GetOptions",
+    "RelativePath": "api/runs/{runId}/catch/options",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "runId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "PokeRogue.Api.Controllers.RandomEncounterController",
+    "Method": "StartEncounter",
+    "RelativePath": "api/runs/{runId}/encounter/start",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "runId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "PokeRogue.Api.Controllers.GymEncounterController",
+    "Method": "StartEncounter",
+    "RelativePath": "api/runs/{runId}/gym/start",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "runId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "PokeRogue.Api.Controllers.ItemController",
+    "Method": "GetInventory",
+    "RelativePath": "api/runs/{runId}/items",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "runId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "PokeRogue.Api.Controllers.ItemController",
+    "Method": "ChooseItem",
+    "RelativePath": "api/runs/{runId}/items/{itemId}",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "runId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "itemId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "PokeRogue.Api.Controllers.ItemController",
+    "Method": "GetOptions",
+    "RelativePath": "api/runs/{runId}/items/options",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "runId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "PokeRogue.Api.Controllers.PokemonCenterController",
+    "Method": "Heal",
+    "RelativePath": "api/runs/{runId}/pokemon-center/heal",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "runId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "PokeRogue.Api.Controllers.TmController",
+    "Method": "UseTM",
+    "RelativePath": "api/runs/{runId}/tm/{runPokemonId}",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "runId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "runPokemonId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "PokeRogue.Api.Controllers.TrainerEncounterController",
+    "Method": "StartEncounter",
+    "RelativePath": "api/runs/{runId}/trainer/start",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "runId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "PokeRogue.Api.Controllers.WeatherForecastController",
+    "Method": "Get",
+    "RelativePath": "WeatherForecast",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[PokeRogue.Api.WeatherForecast, PokeRogue.Api, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ],
+    "EndpointName": "GetWeatherForecast"
+  }
+]

@@ -1,0 +1,126 @@
+﻿@if (Map == null)
+{
+    <p>Loading map...</p>
+}
+else
+{
+    var allNodes = GetAllMapNodes();
+
+    <p>Map nodes found: @allNodes.Count</p>
+
+    <div class="game-map">
+        @foreach (var row in allNodes
+            .GroupBy(node => node.Row)
+            .OrderByDescending(group => group.Key))
+        {
+            <div class="map-row">
+                @foreach (var mapNode in row
+                    .OrderBy(node => node.Column))
+                {
+                    var runNode =
+                        Map.RunNodes.FirstOrDefault(node =>
+                            node.MapNodeId == mapNode.Id
+                        );
+
+                    bool isCurrent =
+                        mapNode.Id == CurrentNodeId;
+
+                    bool canMove =
+                        CanMoveTo(mapNode.Id);
+
+                    <button class="map-node"
+                            disabled="@(!canMove)"
+                            @onclick="() => SelectNode(mapNode.Id)">
+
+                        @if (isCurrent)
+                        {
+                            <strong>YOU</strong>
+                        }
+                        else if (runNode != null)
+                        {
+                            <span>@runNode.Type</span>
+                        }
+                        else
+                        {
+                            <span>Start</span>
+                        }
+                    </button>
+                }
+            </div>
+        }
+    </div>
+}
+
+@code {
+    [Parameter]
+    public RunMapDto? Map { get; set; }
+
+    [Parameter]
+    public int CurrentNodeId { get; set; }
+
+    [Parameter]
+    public EventCallback<int> OnMove { get; set; }
+
+    private List<MapNodeDto> GetAllMapNodes()
+    {
+        if (Map == null)
+        {
+            return new List<MapNodeDto>();
+        }
+
+        var nodes =
+            new Dictionary<int, MapNodeDto>();
+
+        foreach (var runNode in Map.RunNodes)
+        {
+            if (runNode.MapNode != null)
+            {
+                nodes[runNode.MapNode.Id] =
+                    runNode.MapNode;
+            }
+        }
+
+        foreach (var connection in Map.Connections)
+        {
+            if (connection.FromNode != null)
+            {
+                nodes[connection.FromNode.Id] =
+                    connection.FromNode;
+            }
+
+            if (connection.ToNode != null)
+            {
+                nodes[connection.ToNode.Id] =
+                    connection.ToNode;
+            }
+        }
+
+        return nodes.Values
+            .OrderBy(node => node.Row)
+            .ThenBy(node => node.Column)
+            .ToList();
+    }
+
+    private bool CanMoveTo(int nodeId)
+    {
+        if (Map == null)
+        {
+            return false;
+        }
+
+        return Map.Connections.Any(connection =>
+            connection.FromNodeId == CurrentNodeId &&
+            connection.ToNodeId == nodeId
+        );
+    }
+
+    private async Task SelectNode(int nodeId)
+    {
+        if (!CanMoveTo(nodeId))
+        {
+            return;
+        }
+
+        await OnMove.InvokeAsync(nodeId);
+    }
+}

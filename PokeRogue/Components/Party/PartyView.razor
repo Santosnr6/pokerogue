@@ -1,0 +1,117 @@
+﻿<div class="party-view">
+
+    <h3>Party</h3>
+
+    @if (BattlePokemon != null)
+    {
+        @foreach (var pokemon in BattlePokemon)
+        {
+            bool isPending =
+                pokemon.RunPokemonId.HasValue &&
+                pokemon.RunPokemonId.Value ==
+                PendingSwitchPokemonId;
+
+            <div class="party-pokemon">
+
+                <strong>@pokemon.Name</strong>
+
+                <div>
+                    Level: @pokemon.Level
+                </div>
+
+                <div>
+                    HP:
+                    @pokemon.CurrentHp
+                    /
+                    @pokemon.MaxHp
+                </div>
+
+                @if (pokemon.IsActive)
+                {
+                    <div>
+                        <strong>Active</strong>
+                    </div>
+                }
+                else if (pokemon.IsFainted)
+                {
+                    <button disabled>
+                        Fainted
+                    </button>
+                }
+                else if (isPending)
+                {
+                    <button disabled>
+                        Switching in...
+                    </button>
+                }
+                else if (pokemon.RunPokemonId.HasValue)
+                {
+                    <button @onclick="() => HandleSwitch(
+                                                    pokemon.RunPokemonId.Value
+                                                )">
+
+Switch in
+
+</button>
+                }
+
+            </div>
+        }
+    }
+    else if (Pokemon != null)
+    {
+        @foreach (var pokemon in Pokemon
+            .OrderBy(pokemon => pokemon.PartyPosition))
+        {
+            <div class="party-pokemon">
+
+                <strong>
+                    @(pokemon.PokemonSpecies?.Name
+                        ?? pokemon.Name)
+                </strong>
+
+                <div>
+                    Level: @pokemon.Level
+                </div>
+
+                <div>
+                    HP: @pokemon.CurrentHp
+                </div>
+
+                <div>
+                    Attack Stage:
+                    @pokemon.AttackStage / 3
+                </div>
+
+            </div>
+        }
+    }
+    else
+    {
+        <p>No Pokémon in party.</p>
+    }
+
+</div>
+
+@code {
+    [Parameter]
+    public List<PokemonDto>? Pokemon { get; set; }
+
+    [Parameter]
+    public List<BattlePokemonDto>? BattlePokemon { get; set; }
+
+    [Parameter]
+    public int? PendingSwitchPokemonId { get; set; }
+
+    [Parameter]
+    public EventCallback<int> OnSwitch { get; set; }
+
+    private async Task HandleSwitch(
+        int runPokemonId
+    )
+    {
+        await OnSwitch.InvokeAsync(
+            runPokemonId
+        );
+    }
+}

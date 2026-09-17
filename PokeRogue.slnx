@@ -1,0 +1,8 @@
+<Solution>
+  <Project Path="PokeRogue.Api/PokeRogue.Api.csproj" />
+  <Project Path="PokeRogue.Application/PokeRogue.Application.csproj" />
+  <Project Path="PokeRogue.Domain/PokeRogue.Domain.csproj" />
+  <Project Path="PokeRogue.Infrastructure/PokeRogue.Infrastructure.csproj" />
+  <Project Path="PokeRogue.Tests/PokeRogue.Tests.csproj" Id="551ae292-6f6e-4c60-89eb-fbebcd3edd1c" />
+  <Project Path="PokeRogue/PokeRogue.Blazor.csproj" />
+</Solution>

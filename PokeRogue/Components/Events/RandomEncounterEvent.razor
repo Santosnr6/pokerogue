@@ -1,0 +1,421 @@
+﻿@inject BattleApiService BattleApiService
+
+<div class="battle-event">
+
+    @if (_isLoading)
+    {
+        <p>Loading battle...</p>
+    }
+    else if (!string.IsNullOrWhiteSpace(_errorMessage))
+    {
+        <p>Error: @_errorMessage</p>
+    }
+    else if (_battle == null)
+    {
+        <p>Battle could not be loaded.</p>
+    }
+    else
+    {
+        <h2>Wild Pokémon appeared!</h2>
+
+        <div class="opponent">
+
+            <h3>
+                @_battle.OpponentPokemon.Name
+                Lv. @_battle.OpponentPokemon.Level
+            </h3>
+
+            <p>
+                HP:
+                @_battle.OpponentPokemon.CurrentHp
+                /
+                @_battle.OpponentPokemon.MaxHp
+            </p>
+
+        </div>
+
+        <hr />
+
+        <div class="player">
+
+            <h3>
+                @_battle.PlayerPokemon.Name
+                Lv. @_battle.PlayerPokemon.Level
+            </h3>
+
+            <p>
+                HP:
+                @_battle.PlayerPokemon.CurrentHp
+                /
+                @_battle.PlayerPokemon.MaxHp
+            </p>
+
+        </div>
+
+        @if (!string.IsNullOrWhiteSpace(_battleMessage))
+        {
+            <p>
+                <strong>
+                    @_battleMessage
+                </strong>
+            </p>
+        }
+
+        @if (_battle.Status == "InProgress")
+        {
+            <div class="battle-speed">
+                <label>
+                    <input type="checkbox"
+                           @bind="_fastBattle" />
+
+                    Fast battle
+                </label>
+            </div>
+
+            <PartyView BattlePokemon="_battle.Party"
+                       PendingSwitchPokemonId="_pendingSwitchPokemonId"
+                       OnSwitch="QueueSwitch" />
+        }
+        else if (_battle.Status == "PlayerWon")
+        {
+            <h3>You won!</h3>
+
+            <button @onclick="FinishBattle">
+                Continue
+            </button>
+        }
+        else if (_battle.Status == "PlayerLost")
+        {
+            <h3>You lost!</h3>
+        }
+
+    }
+
+</div>
+
+@code {
+    [Parameter]
+    public int RunId { get; set; }
+
+    [Parameter]
+    public EventCallback OnCompleted { get; set; }
+
+    [Parameter]
+    public EventCallback OnLost { get; set; }
+
+    private BattleStateDto? _battle;
+
+    private int _battleId;
+
+    private bool _isLoading = true;
+
+    private bool _battleLoopRunning;
+
+    private bool _fastBattle;
+
+    private int? _pendingSwitchPokemonId;
+
+    private string? _errorMessage;
+
+    private string? _battleMessage;
+
+    private bool _lossReported;
+
+    private int BattleDelay =>
+        _fastBattle
+            ? 750
+            : 2500;
+
+    protected override async Task OnInitializedAsync()
+    {
+        await StartBattle();
+    }
+
+    private async Task StartBattle()
+    {
+        _isLoading = true;
+        _errorMessage = null;
+
+        try
+        {
+            var start =
+                await BattleApiService
+                    .StartRandomEncounterAsync(
+                        RunId
+                    );
+
+            _battleId =
+                start.BattleId;
+
+            _battle =
+                await BattleApiService
+                    .GetBattleStateAsync(
+                        _battleId
+                    );
+
+            _battleMessage =
+                $"A wild " +
+                $"{_battle.OpponentPokemon.Name} " +
+                $"appeared!";
+
+            await InvokeAsync(
+                StateHasChanged
+            );
+
+            await Task.Delay(
+                BattleDelay
+            );
+
+            _ = RunBattleLoop();
+        }
+        catch (Exception exception)
+        {
+            _errorMessage =
+                exception.ToString();
+        }
+        finally
+        {
+            _isLoading = false;
+        }
+    }
+
+    private async Task RunBattleLoop()
+    {
+        if (_battleLoopRunning)
+        {
+            return;
+        }
+
+        _battleLoopRunning =
+            true;
+
+        try
+        {
+            while (_battle != null &&
+                   _battle.Status == "InProgress")
+            {
+                if (_battle.IsPlayerTurn &&
+                    _pendingSwitchPokemonId.HasValue)
+                {
+                    await ExecutePendingSwitch();
+
+                    await InvokeAsync(
+                        StateHasChanged
+                    );
+
+                    if (_battle == null ||
+                        _battle.Status != "InProgress")
+                    {
+                        break;
+                    }
+
+                    await Task.Delay(
+                        BattleDelay
+                    );
+
+                    continue;
+                }
+
+                var result =
+                    await BattleApiService
+                        .AttackAsync(
+                            _battleId
+                        );
+
+                SetBattleMessage(
+                    result
+                );
+
+                _battle =
+                    await BattleApiService
+                        .GetBattleStateAsync(
+                            _battleId
+                        );
+
+                await InvokeAsync(
+                    StateHasChanged
+                );
+
+                if (_battle.Status ==
+                    "PlayerLost")
+                {
+                    await ReportLoss();
+
+                    break;
+                }
+
+                if (_battle.Status !=
+                    "InProgress")
+                {
+                    break;
+                }
+
+                await Task.Delay(
+                    BattleDelay
+                );
+            }
+        }
+        catch (Exception exception)
+        {
+            _errorMessage =
+                exception.ToString();
+        }
+        finally
+        {
+            _battleLoopRunning =
+                false;
+
+            await InvokeAsync(
+                StateHasChanged
+            );
+        }
+    }
+
+    private async Task QueueSwitch(
+        int runPokemonId
+    )
+    {
+        if (_battle == null ||
+            _battle.Status != "InProgress")
+        {
+            return;
+        }
+
+        _pendingSwitchPokemonId =
+            runPokemonId;
+
+        string pokemonName =
+            GetPokemonName(
+                runPokemonId
+            );
+
+        _battleMessage =
+            $"Switch to {pokemonName} queued.";
+
+        await InvokeAsync(
+            StateHasChanged
+        );
+    }
+
+    private async Task ExecutePendingSwitch()
+    {
+        if (!_pendingSwitchPokemonId.HasValue ||
+            _battle == null ||
+            !_battle.IsPlayerTurn)
+        {
+            return;
+        }
+
+        int runPokemonId =
+            _pendingSwitchPokemonId.Value;
+
+        string pokemonName =
+            GetPokemonName(
+                runPokemonId
+            );
+
+        await BattleApiService
+            .SwitchPokemonAsync(
+                _battleId,
+                runPokemonId
+            );
+
+        _pendingSwitchPokemonId =
+            null;
+
+        _battle =
+            await BattleApiService
+                .GetBattleStateAsync(
+                    _battleId
+                );
+
+        _battleMessage =
+            $"Go, {pokemonName}!";
+    }
+
+    private string GetPokemonName(
+        int runPokemonId
+    )
+    {
+        if (_battle == null)
+        {
+            return "Pokémon";
+        }
+
+        return _battle.Party
+            .FirstOrDefault(
+                pokemon =>
+                    pokemon.RunPokemonId ==
+                    runPokemonId
+            )
+            ?.Name
+            ?? "Pokémon";
+    }
+
+    private void SetBattleMessage(
+        BattleAttackResultDto result
+    )
+    {
+        _battleMessage =
+            $"{result.AttackerName} used " +
+            $"{result.AttackName}! " +
+            $"It dealt {result.Damage} damage.";
+
+        if (result.IsCritical)
+        {
+            _battleMessage +=
+                " Critical hit!";
+        }
+
+        if (result.TypeMultiplier > 1)
+        {
+            _battleMessage +=
+                " It's super effective!";
+        }
+        else if (result.TypeMultiplier < 1)
+        {
+            _battleMessage +=
+                " It's not very effective.";
+        }
+
+        if (result.Fainted)
+        {
+            _battleMessage +=
+                $" {result.DefenderName} fainted!";
+
+            if (!string.IsNullOrWhiteSpace(
+                result.NewActivePlayerPokemonName))
+            {
+                _battleMessage +=
+                    $" Go, " +
+                    $"{result.NewActivePlayerPokemonName}!";
+            }
+
+            if (!string.IsNullOrWhiteSpace(
+                result.NewActiveOpponentPokemonName))
+            {
+                _battleMessage +=
+                    $" The opponent sent out " +
+                    $"{result.NewActiveOpponentPokemonName}!";
+            }
+        }
+    }
+
+    private async Task ReportLoss()
+    {
+        if (_lossReported)
+        {
+            return;
+        }
+
+        _lossReported =
+            true;
+
+        await OnLost.InvokeAsync();
+    }
+
+    private async Task FinishBattle()
+    {
+        await OnCompleted.InvokeAsync();
+    }
+}
